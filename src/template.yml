@@ -1,0 +1,94 @@
+site_name: Leverege Architect
+copyright: Copyright &copy; Leverege LLC 2022 | All Rights Reserved | IoT Changes Everything&trade;
+theme:
+  logo : stable/images/architectCircle.svg
+  favicon : stable/images/architectFavicon.png
+  name: material
+  custom_dir: overrides
+  features:
+    - navigation.tabs
+    - navigation.top
+    - NOnavigation.sections
+    - navigation.indexes
+    - search.highlight
+    - search.share
+    - search.suggest
+nav : 
+  - Home: index.md
+  - Platform Overview:
+    - Overview: stable/platform-overview/overview.md
+    - Architecture: stable/platform-overview/architecture.md
+    - Core Concepts: stable/platform-overview/concepts.md
+    - Platform Setup: stable/platform-overview/deployment.md
+    - Building a Project: stable/platform-overview/getting-started.md
+  - API:
+    - API: stable/api/api.md
+    - Interface: stable/api/interface.md
+    - Project: stable/api/project.md
+    - System: stable/api/system.md
+    - Device: stable/api/device.md
+    - Blueprint: stable/api/blueprint.md
+    - Collection: stable/api/collection.md
+    - Child: stable/api/child.md
+    - History: stable/api/history.md
+    - Scenario: stable/api/scenario.md
+    - Script: stable/api/script.md
+    - Template: stable/api/template.md
+    - Timer: stable/api/timer.md
+    - User: stable/api/user.md
+    - Users: stable/api/users.md
+
+extra:
+  version: 
+    provider: mike
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/feed/update/urn:li:activity:6589859965832347648/
+      name: Leverege on LinkedIn
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/leverege/
+      name: Leverege on Facebook
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/leverege?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor
+      name: Leverege on Twitter
+extra_javascript:
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
+extra_css:
+  - stable/stylesheets/extra.css
+plugins:
+  - search
+  - awesome-pages
+
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist
+  - pymdownx.tilde

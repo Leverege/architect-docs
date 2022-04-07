@@ -1,0 +1,3 @@
+Copyright (c) 2018 - Leverege LLC
+
+This proprietary software is owned by Leverege LLC ("Leverege") for its exclusive use except when otherwise noted. Any user of this software agrees to hold Leverege harmless for any and all damages or liabilities that arise out of the use of the software for any purpose. Leverege does not warrant suitability for any purpose. Except when noted, Leverege explicitly does not grant the user of the software any right to use, modify, or redistribute the source code for any purpose, and will pursue all legal remedies against violators as permitted under the laws of United States. 

@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "site": "dev-architect-docs",
+    "public": "site",
+    "ignore": [
+      "firebase.json",
+      "docs",
+      "overview",
+      "devDeployDocs.sh",
+      "README.md",
+      "mkdocs.yml",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
