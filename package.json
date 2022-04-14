@@ -15,9 +15,10 @@
   "leveregeI18NBundler": true,
   "scripts": {
     "generateDocs": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serveDocs": "cd docs && mkdocs serve"
-  },
+    "test": "echo \"no tests yet\"",
+    "serveDocs": "cd docs && mkdocs serve",
+    "lint": "find ./src -name \\*.\\*js | xargs eslint --cache --cache-location node_modules/.cache/.eslintcache --report-unused-disable-directives"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Leverege/architect-docs.git"
