@@ -1,77 +1,76 @@
-const YAML = require( 'yaml' )
-const fs = require( 'fs-extra' )
-
 // const Secrets = require( '@leverege/secrets' )
 // const execa = require( 'execa' )
-const SimpleGit = require( 'simple-git' )
 
 const { pushd, popd, findFile } = require( './utils/Shell' )
-const repos = require( './repos.json' )
-const config = require( './config.json' )
-
-const tmpDir = 'tmp'
-const mkdocsSrcDir = 'docs'
-const defaultBranches = [ 'development', 'main', 'master' ]
 
 async function main() {
 
   // TODO: identity auth later
   // const { key, secret } = await getGithubTokenAndTest()
   console.log( 'Generating Docs! \n\n' )
-  await initCleanupMkdocsTemplate()
-  const file = await fs.readFileSync( './src/template.yml', 'utf8' )
-  const navData = await YAML.parse( file )
+//   await initCleanupMkdocsTemplate()
+//   const file = await fs.readFileSync( './src/template.yml', 'utf8' )
+//   const navData = await YAML.parse( file )
 
-  // const newFile = await YAML.
+//   // generate new ones and insert them into template
+//   for ( let i = 0; i < repos.length; i++ ) {
+//     await fs.remove( tmpDir )
+//     await fs.mkdir( tmpDir )
 
-  // console.log( 'data', data )
+//     try { 
+//       // This git cli is to clone the repo
+//       const git = new SimpleGit( )
 
-  // generate new ones and insert them into template
-  for ( let i = 0; i < repos.length; i++ ) {
-    await fs.remove( tmpDir )
-    await fs.mkdir( tmpDir )
+//       await git.clone( repos[i].url, tmpDir )
 
-    try { 
-      // This git cli is to clone the repo
-      const git = new SimpleGit( )
+//       pushd( tmpDir )
 
-      await git.clone( repos[i].url, tmpDir )
+//       // Thi git cli is to utilize the repo (old cli "sticks" to architect docs repo level)
+//       const gitTemp = new SimpleGit( )
+//       await checkDefaultBranches( repos[i], gitTemp )
 
-      pushd( tmpDir )
+//       // get back to root of docs dir
+//       popd()
+//       await insertTheDocs( repos[i], navData )
 
-      // Thi git cli is to utilize the repo (old cli "sticks" to architect docs repo level)
-      const gitTemp = new SimpleGit( )
-      await checkDefaultBranches( repos[i], gitTemp )
+//       console.log( 'Done with: ', repos[i], '\n' )
+//     // grab readMes and stick them in the right location
+//     } catch ( err ) {
+//       console.log( `issue with git pull ${repos[i].url} - moving on`, err )
+//     }
+//     const newFile = await YAML.stringify( navData )
+//     await fs.writeFile( 'mkdocs.yml', newFile )
+//   }
 
-      // get back to root of docs dir
-      popd()
-      await insertTheDocs( repos[i], navData )
+//   console.log( 'Made it here ' )
+  
+//   const merged = mergeYaml( [
+//     'src/header.yml',
+//     'mkdocs.yml',
+//     'src/footer.yml'
+//   ] )
 
-      console.log( 'Done with: ', repos[i], '\n' )
-    // grab readMes and stick them in the right location
-    } catch ( err ) {
-      console.log( `issue with git pull ${repos[i].url} - moving on`, err )
-    }
-    const newFile = await YAML.stringify( navData )
-    await fs.writeFile( 'mkdocs.yml', newFile )
-  }
-}
+//   console.log( 'Made it here - merged', merged )
 
-async function checkDefaultBranches( repo, git ) {
-  if ( repo.branch ) {
-    await git.fetch( [ repo.branch ] ).checkout( [ repo.branch ] )
-  } else {
-    for ( let i = 0; i < defaultBranches.length; i++ ) {
-      try {
-        await git.fetch().checkout( [ defaultBranches[i] ] )
-        // success? move on 
-        break;
-      } catch ( err ) {
-        console.log( err )
-        console.log( `Issue with ${repo.url} || branch: ${defaultBranches[i]}`, 'trying again with a differnt branch' )
-      }
-    }
-  }
+//   await fs.writeFile( 'test.yml', merged )
+
+// }
+
+// async function checkDefaultBranches( repo, git ) {
+//   if ( repo.branch ) {
+//     await git.fetch( [ repo.branch ] ).checkout( [ repo.branch ] )
+//   } else {
+//     for ( let i = 0; i < defaultBranches.length; i++ ) {
+//       try {
+//         await git.fetch().checkout( [ defaultBranches[i] ] )
+//         // success? move on 
+//         break;
+//       } catch ( err ) {
+//         console.log( err )
+//         console.log( `Issue with ${repo.url} || branch: ${defaultBranches[i]}`, 'trying again with a differnt branch' )
+//       }
+//     }
+//   }
 }
 
 async function insertTheDocs( repo, navData ) {
@@ -106,7 +105,6 @@ function traverseNav( location, nav, navLevels ) {
   // if we are doing insert
   if ( levelsLeft === 0 ) {
     if ( isCurrentPresent === -1 ) {
-      console.log( 'nav Now', nav )
       nav.push( { [current] : location } )
       return
     } 

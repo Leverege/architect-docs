@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "description": "The number of items returned"
+    },
+    "total": {
+      "type": "integer",
+      "description": "The total number of items"
+    },
+    "perPage": {
+      "type": "integer",
+      "description": "The number of items perPage"
+    },
+    "startIndex": {
+      "type": "integer",
+      "description": "The index relative to the total list of the first item in the items list"
+    },
+    "search": {
+      "type": "string",
+      "description": "The search string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Device"
+      }
+    }
+  }
+}

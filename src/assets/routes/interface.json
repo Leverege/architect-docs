@@ -1,0 +1,39 @@
+[
+  { 
+    "type" : "get",
+    "summaryStart" : "List all",
+    "response" : "list"
+  },
+  { 
+    "type" : "get",
+    "addToRoute": "/:ALIAS",
+    "response" : "list"
+  },
+  { 
+    "type" : "post",
+    "addToRoute": ".search",
+    "summaryStart" : "Search for",
+    "requestBody" : "search",
+    "response" : "list"
+  },
+  {
+    "type": "get",
+    "summaryEnd" : "by network alias",
+    "addToRoute" : "/getDeviceByNetworkAlias",
+    "response" : "device"
+  },
+  {
+    "type": "get",
+    "addToRoute" : "/history",  
+    "summaryStart" : "Get history of",
+    "response" : "list",
+    "requestBody" : "eventsHistory"
+  },
+  {
+    "type": "get",
+    "addToRoute" : "/events",
+    "summaryStart" : "Get events list for",
+    "response" : "list",
+    "requestBody" : "eventsHistory"
+  }
+]

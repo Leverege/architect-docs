@@ -1,0 +1,17 @@
+[
+  { 
+    "summaryEnd" : " device",
+    "summaryStart" : "Create new",
+    "type" : "post",
+    "addToRoute": "/create",
+    "parameters" : false,
+    "response" : "device",
+    "body" : "deviceCreate"
+  },
+  { 
+    "summaryStart" : "Delete",
+    "type": "delete",
+    "addToRoute": "/:ALIAS",
+    "response" : "delete"
+  }
+]

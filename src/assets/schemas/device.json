@@ -1,0 +1,88 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique id of the Device",
+      "readOnly": true,
+      "required": true
+    },
+    "blueprintId": {
+      "type": "string",
+      "description": "The id of the Blueprint that describes this device",
+      "required": true
+    },
+    "systemId": {
+      "type": "string",
+      "description": "The id of the System that owns this Device",
+      "readOnly": true,
+      "required": true
+    },
+    "projectId": {
+      "type": "string",
+      "description": "The id of the Project that owns this Device",
+      "readOnly": true,
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the Device"
+    },
+    "purpose": {
+      "type": "string",
+      "enum": [
+        "device",
+        "organization"
+      ]
+    },
+    "networkId": {
+      "type": "string",
+      "description": "The id of the Network that this Device is receiving data on",
+      "readOnly": true,
+      "required": true
+    },
+    "networkAliases": {
+      "type": "object",
+      "description": "The external identities (Network/Key/Values triples) of this Device",
+      "additionalProperties": {}
+    },
+    "metadata": {
+      "type": "object",
+      "description": "User defined metadata about Device",
+      "additionalProperties": {}
+    },
+    "simulated": {
+      "type": "boolean"
+    },
+    "created": {
+      "type": "number",
+      "description": "The time, in milliseconds second epoch, at which this object was created.",
+      "readOnly": true
+    },
+    "lastModified": {
+      "type": "number",
+      "description": "The time, in milliseconds second epoch, that this object was last changed.",
+      "readOnly": true
+    }
+  },
+  "example": {
+    "name": "My Device",
+    "id": "0Ml6RFtMiGiy5zu0lpEY86",
+    "blueprintId": "2jcGAvCIyXY9p6RZu8CHE4",
+    "systemId": "48ZXwC058DMBjurH4CpOu7",
+    "projectId": "0oTNqwApTanxLZqVpPjxjc",
+    "networkId": "my-net",
+    "networkAliases": {
+      "my-net": {
+        "deveui": "AX-BA-30-12"
+      }
+    },
+    "purpose": "device",
+    "simulated": false,
+    "metadata": {
+      "extraValue": 12
+    },
+    "created": 1525398286228,
+    "lastModified": 1525402000646
+  }
+}

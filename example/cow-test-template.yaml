@@ -1,0 +1,205 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Leverege Farm"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "petstore.swagger.io"
+basePath: "/v2"
+tags:
+- name: "cow"
+  description: "Everything about your cows"
+- name: "tracker"
+  description: "Everything about your trackers"
+- name: "farm"
+  description: "Everthing about your farms"
+schemes:
+- "https"
+paths:
+  /v1/interface/:systemId/farm/:farmId/cow/:cowId:
+    get:
+      tags:
+      - "cow"
+      summary: "Cows in a system"
+      description: ""
+      operationId: "addPet"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Cow object"
+        required: true
+        schema:
+          $ref: "#/definitions/Cow"
+      responses:
+        "405":
+          description: "Invalid input"
+  /v1/interface/:systemId/farm:
+    get:
+      tags:
+      - "farm"
+      summary: "Farms in a system"
+      description: ""
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Cow object"
+        required: true
+        schema:
+          $ref: "#/definitions/Cow"
+      responses:
+        "405":
+          description: "Invalid input"
+  /v1/device/:cowId/setValue:
+    post:
+      tags:
+      - "cow"
+      summary: "Set cow attribute values"
+      description: ""
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Cow object that needs amended"
+        required: true
+        schema:
+          $ref: "#/definitions/Cow"
+      responses:
+        "405":
+          description: "Invalid input"
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+  /v1/interface/:systemId/farm/:farmId/cows:
+    get:
+      tags:
+      - "cow"
+      summary: "List cows in a system"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "status"
+        in: "query"
+        description: "Status values that need to be considered for filter"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "available"
+          - "pending"
+          - "sold"
+          default: "available"
+        collectionFormat: "multi"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Cow"
+        "400":
+          description: "Invalid status value"
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+  /v1/interface/:systemId/farm/:farmId/cows/:cowId/tracker:
+    get:
+      tags:
+      - "tracker"
+      summary: "Find trackers"
+      description: ""
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "tags"
+        in: "query"
+        description: "Tags to filter by"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "multi"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Cow"
+        "400":
+          description: "Invalid tag value"
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+securityDefinitions:
+  petstore_auth:
+    type: "oauth2"
+    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:pets: "modify pets in your account"
+      read:pets: "read your pets"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+definitions:
+  Cow:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      weight:
+        type: "integer"
+        format: "int32"
+  Tracker:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+    xml:
+      name: "Category"
+  Farm:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      address:
+        type: "string"
+    xml:
+      name: "User"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"

@@ -1,16 +1,18 @@
 {
-  "hosting": {
-    "site": "dev-architect-docs",
-    "public": "site",
-    "ignore": [
-      "firebase.json",
-      "docs",
-      "overview",
-      "devDeployDocs.sh",
-      "README.md",
-      "mkdocs.yml",
-      "**/.*",
-      "**/node_modules/**"
-    ]
-  }
+  "hosting": [
+    {
+      "site":"recovr-api-docs",
+      "public": "docs",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }]
 }

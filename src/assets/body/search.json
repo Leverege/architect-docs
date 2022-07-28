@@ -1,0 +1,17 @@
+{
+    "description": "Seach query",
+    "required": true,
+    "content":{
+      "application/json": {
+        "schema": {
+          "type": "object",
+          "properties":{
+            "THIS NEEDS TO BE ADDED":{
+              "type": "string",
+              "description":"These fields will be added soon : )"
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,21 @@
+@import '../node_modules/@leverege/ui-elements/lib/ui-elements.css';
+@import '../node_modules/@leverege/ui-elements/lib/theme/default.css';
+
+body {
+  margin : 0;
+  padding : 0;
+}
+
+#root {
+  position: absolute;
+  margin : 0;
+  padding : 0;
+  top : 0;
+  left : 0;
+  right : 0;
+  bottom : 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}

@@ -1,0 +1,29 @@
+{
+  "description": "Device create body",
+  "required": true,
+  "content":{
+    "application/json": {
+      "schema": {
+        "type": "object",
+        "properties":{
+          "name":{
+            "type": "string",
+            "description":"Name of the device"
+          },
+          "blueprintId" :{
+            "type": "string",
+            "description":"Id of the blueprint representing the device"
+          },
+          "networkAliases" :{
+            "type": "string",
+            "description":"Network identifier field"
+          },
+          "networkId" : {
+            "type": "string",
+            "description":"Network idi"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "list" : {
+    "200" : {
+      "$ref": "#/components/responses/listSuccess"
+    }
+  },
+  "delete" : {
+    "200" : {
+      "$ref": "#/components/responses/deviceDeleteSuccess"
+    }
+  },
+  "device" : {
+    "200" : {
+      "$ref": "#/components/responses/deviceSuccess"
+    }
+  }
+}

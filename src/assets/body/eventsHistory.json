@@ -1,0 +1,41 @@
+{
+  "description": "Events/History queries",
+  "required": true,
+  "content":{
+    "application/json": {
+      "schema": {
+        "type": "object",
+        "properties":{
+          "start":{
+            "type": "timestamp",
+            "description":"start time of query"
+          },
+          "end":{
+            "type": "timestamp",
+            "description":"end time of query"
+          },
+          "startIndex" :{
+            "type": "string",
+            "description":"start index of data (use 100)"
+          },
+          "perPage" :{
+            "type": "integer",
+            "description":"How many data rows per page"
+          },
+          "attributes" : {
+            "type": "array",
+            "description":"fields to return in data object (ie. ['$id','$time']"
+          },
+          "order" : {
+            "type": "array",
+            "description":"how the data will be ordered (ie. [ 'hourTime', 'ASC' ]"
+          },
+          "group" : {
+            "type": "array",
+            "description":"how the data will be groupeed (ie. [ 'hourTime' ]"
+          }
+        }
+      }
+    }
+  }
+}

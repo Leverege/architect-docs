@@ -1,0 +1,32 @@
+{
+  "deviceSuccess" : {
+    "description": "Successful device response",
+    "content":{
+      "appliction/json" : {
+        "schema" : {
+          "$ref": "#/components/schemas/Device"
+        }
+      }
+    }
+  },
+  "listSuccess" : {
+    "description": "Successful device list response",
+    "content":{
+      "appliction/json" : {
+        "schema" : {
+          "$ref": "#/components/schemas/DeviceList"
+        }
+      }
+    }
+  },
+  "deviceDeleteSuccess":{
+    "description": "Successful device removal",
+    "content":{
+      "appliction/json" : {
+        "schema" : {
+          "$ref": "#/components/schemas/DeviceDelete"
+        }
+      }
+    }
+  }
+}

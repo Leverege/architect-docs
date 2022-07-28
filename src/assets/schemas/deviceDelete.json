@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "integer",
+        "description": "Success Code\n"
+      },
+      "offset": {
+        "type": "type",
+        "description": "deviceRemoved\n"
+      },
+      "systemId": {
+        "type": "string",
+        "description": "The systemId from where the device was deleted\n"
+      },
+      "id": {
+        "type": "string",
+        "description": "The id of the device deleted\n"
+      }
+    }
+}

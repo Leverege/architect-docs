@@ -1,30 +1,9 @@
-# architect-docs
+# doc-gen-i
 
-These are the architect docs for the leverege platform. Upon running `npm generate docs` in this repo, the docs will dynamically generate and pull appropiate documents provided in the repos.json
+This is a doc generator for interace routes. With a proper .env (`npm run decrypt`), upon running `npm run docs` in this repo, the interface docs will dynamically generate in docs/index.html.
 
-### repos.json
+### How it generates
 
-Here is an example of one repo from repos.json:
-
-```
-[
-  {
-    "name" : "api-ui",
-    "url" : "git@bitbucket.org:leverege/api-ui.git",
-    "files" : ["README.md", "Main.jsx"],
-    "indexFiles" : 
-    "supportingFilesDirs" : ["docs/", "src/"],
-    "location" : [ "service" ]
-  }
-]
-```
-
-`name` is the name of the repo you are pulling 
-`url` is the git URL the script will attempt to pull
-`files` are the files that will be pulled as docs 
-`location` is top directory where the pulled docs will be placed
-`supportingFilesDirs` where in the pulled repo the desired docs could be (root is always checked
+When npm run docs executes it uses the script `scripts/genDocs.js` to run through various directories in the `/assets`. `assets/routes` contains all of the base routes to be applied to the found relationships in the project being analyzed. `assets/schemas`, `/assets/responses`, and `/assets/body` are all strucutures referenced by the routes that are built. To add routes add entries to `assets/routes`. To reference new parameters, request bodys, and schemas you will currently need to edit the genDocs.js script to include these (around Line 100).
 
 
-
-### Config.json

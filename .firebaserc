@@ -1,5 +1,14 @@
 {
   "projects": {
-    "default": "leverege-dev-doc"
+    "prd-recovr-auto": "prd-recovr-auto"
+  },
+  "targets": {
+    "prd-recovr-auto": {
+      "hosting": {
+        "recovr-api-docs": [
+          "recovr-api-docs"
+        ]
+      }
+    }
   }
 }
